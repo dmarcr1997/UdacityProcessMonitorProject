@@ -29,16 +29,11 @@ std::string Kernel();
 
 // CPU
 enum CPUStates {
-  kUser_ = 0,
-  kNice_,
-  kSystem_,
-  kIdle_,
-  kIOwait_,
-  kIRQ_,
-  kSoftIRQ_,
-  kSteal_,
-  kGuest_,
-  kGuestNice_
+    utime = 13, 
+    stime = 14, 
+    cutime = 15, 
+    cstime = 16, 
+    starttime = 21
 };
 std::vector<std::string> CpuUtilization();
 float CpuUtilization(int pid);
