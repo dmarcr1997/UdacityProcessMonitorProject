@@ -19,7 +19,11 @@ float Process::CpuUtilization() {
   return LinuxParser::CpuUtilization(pid_);
 }
 
-string Process::Command() { return LinuxParser::Command(pid_); }
+string Process::Command() { 
+  const string command = LinuxParser::Command(pid_);
+  int length = command.length();
+  return length <= 40 ? command : command.substr(0, 40)+ "...";
+}
 
 string Process::Ram() { return LinuxParser::Ram(pid_); }
 

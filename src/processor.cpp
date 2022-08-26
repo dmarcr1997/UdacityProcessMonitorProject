@@ -5,6 +5,7 @@
 using std::stof;
 using std::vector;
 using std::string;
+
 float Processor::Utilization() { 
   vector<string> cpuUtils = LinuxParser::CpuUtilization();
   float idleCpus = stof(cpuUtils[cpuIndexValue::idle]) + stof(cpuUtils[cpuIndexValue::iowait]);

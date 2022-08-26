@@ -17,7 +17,17 @@ const std::string kMeminfoFilename{"meminfo"};
 const std::string kVersionFilename{"/version"};
 const std::string kOSPath{"/etc/os-release"};
 const std::string kPasswordPath{"/etc/passwd"};
-
+  
+const std::string filterProcesses("processes");
+const std::string filterRunningProcesses("procs_running");
+const std::string filterMemTotalString("MemTotal:");
+const std::string filterMemFreeString("MemFree:");
+const std::string filterCpu("cpu");
+const std::string filterUID("Uid:");
+//Used VmRSS instead of VmSize to show accurate ram usage
+//https://man7.org/linux/man-pages/man5/proc.5.html
+const std::string filterProcMem("VmRSS:");
+  
 // System
 float MemoryUtilization();
 long UpTime();
@@ -26,6 +36,7 @@ int TotalProcesses();
 int RunningProcesses();
 std::string OperatingSystem();
 std::string Kernel();
+
 
 // CPU
 enum CPUStates {
